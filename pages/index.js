@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -16,10 +17,10 @@ export default function Home() {
       {/*This is the navigation bar component */}
       <nav className={styles.mainnav}>
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-          <li>Blog</li>
+          <Link href='/'><a><li>Home</li></a></Link>
+          <Link href='/about'><a><li>About</li></a></Link>
+          <Link href='/contact'><a><li href='/'>Contact</li></a></Link>
+          <Link href='/blog'><a><li>Blog</li></a></Link>
         </ul>
       </nav>
       {/* <Script src='/sc.js' strategy='lazyOnload'></Script> */}
