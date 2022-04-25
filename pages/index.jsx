@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Script from 'next/script'
 import styles from '../styles/Home.module.css'
-import Link from 'next/link'
+
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         {
           `
             .blogTitle{
-              font-size: 2.25rem;
+              font-size: 2.rem;
             }
             .blogItem h3{
               font-size: 1.5rem;
@@ -30,20 +30,11 @@ export default function Home() {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
 
-      {/*This is the navigation bar component */}
-      <nav className={styles.mainnav}>
-        <ul>
-          <Link href='/'><a><li>Home</li></a></Link>
-          <Link href='/about'><a><li>About</li></a></Link>
-          <Link href='/contact'><a><li href='/'>Contact</li></a></Link>
-          <Link href='/blog'><a><li>Blog</li></a></Link>
-        </ul>
-      </nav>
+      
       {/* <Script src='/sc.js' strategy='lazyOnload'></Script> */}
       <main className={styles.main}>
         <h1 className={styles.title}>
           The CodeWalker Blog
-          <span className='mySpan'>Episode IV</span>
         </h1>
           <div className={styles.imgWrap}>
             <Image className={styles.mainImg} src='/home.jpg' width={400} height={250}/>
