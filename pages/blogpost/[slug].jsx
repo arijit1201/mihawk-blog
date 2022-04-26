@@ -7,23 +7,29 @@ import styles from '../../styles/BlogPost.module.css'
 const slug = () => {
   const router = useRouter();
   console.log(router)
-  const {slug} = router.query;
   const [blog, setBlog] = useState([])
   useEffect(() => {
+    if(!router.isReady) return;
     console.log("use effect is working")
+    const {slug} = router.query;
     const fetchData = async() => {
       console.log(slug)
-      let dataFromFetch = await (await fetch(`http://localhost:3000/api/getblog?slug=${slug}`)).json()
-      setBlog(dataFromFetch)
+      let dataFromFetch = await fetch(`http://localhost:3000/api/getblog?slug=${slug}`)
+      console.log(dataFromFetch,"_------------------------------")
+      if(dataFromFetch.status !== 200 ){
+         setBlog({title: "Error : 404", content: "Looks like this blog has not been written yet!"})
+        return;
+      }
+        
+      let parsedData = await dataFromFetch.json()
+      setBlog(parsedData)
     }
     fetchData();
-
-
-  }, [])
+  }, [router.isReady])
 
 
   return (
-    <div className={styles.container}>
+    blog && <div className={styles.container}>
       <main className={styles.main}>
         <h1>{blog.title}</h1>
         <hr />
