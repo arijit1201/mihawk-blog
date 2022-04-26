@@ -1,8 +1,4 @@
 .container {
-    padding: 0 2rem;
-  }
-
-.main {
     min-height: 100vh;
     padding-top: 3rem;
     flex: 1;
@@ -11,6 +7,14 @@
     justify-content: flex-start;
     align-items: center;
   }
+
+.main {
+  padding: 0 2rem;
+}
 .blogItem h3{
     cursor: pointer;
+}
+
+.blogItem p{
+  max-width: 50vw;
 }
