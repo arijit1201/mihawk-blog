@@ -9,7 +9,7 @@ const slug = () => {
   console.log(router)
   const [blog, setBlog] = useState([])
   useEffect(() => {
-    if(!router.isReady) return;
+    if(!router.isReady) return; // this was required because of async nature of js due to which the getblog api was being called with an undefined slug as router was not ready yet
     console.log("use effect is working")
     const {slug} = router.query;
     const fetchData = async() => {
@@ -25,7 +25,7 @@ const slug = () => {
       setBlog(parsedData)
     }
     fetchData();
-  }, [router.isReady])
+  }, [router.isReady]) //just means that whenever router state chjanges rerun the effect
 
 
   return (

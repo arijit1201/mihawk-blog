@@ -2,9 +2,17 @@ import React, {useEffect, useState} from 'react'
 import styles from '../styles/Blog.module.css'
 import Link from 'next/link';
 
+//server side rendering
+export async function getServerSideProps(context) {
+  return {
+    props: {name: "Shanks Akagami"}, // will be passed to the page component as props
+  }
+}
+
 //collect all the files from the blogdata directory
 //iterate through them and display them
-const Blog = () => {
+const Blog = (props) => {
+  console.log(props)
   const [blogs, setBlogs] = useState([])
   useEffect(() => {
     console.log("use effect is working")
