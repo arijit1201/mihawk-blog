@@ -5,7 +5,7 @@ export default async function handler(req, res) {
 
   const blogRepo = "blogdata"
   let data = await fs.promises.readdir(blogRepo);
-  console.log(data)
+  //console.log(data)
   let allBlogs = []
   //using for...of pattern of javascript to use await inside
   for(const element of data) {
