@@ -4,39 +4,30 @@ import Link from 'next/link';
 
 //server side rendering
 export async function getServerSideProps(context) {
+
+    let fetchedData  = await fetch('http://localhost:3000/api/blogs')
+    let parsedData = [
+      {
+        title: "Internal Server Error",
+        content: "We are facing some technical difficulties - please try again.",
+        slug: "Internal-Server-Error"
+      }
+    ]
+    if(fetchedData.status===200)
+      parsedData = await fetchedData.json();
+   
+
+    
+
   return {
-    props: {name: "Shanks Akagami"}, // will be passed to the page component as props
+    props: { blogs: parsedData}, // will be passed to the page component as props
   }
 }
 
 //collect all the files from the blogdata directory
 //iterate through them and display them
 const Blog = (props) => {
-  console.log(props)
-  const [blogs, setBlogs] = useState([])
-  useEffect(() => {
-    console.log("use effect is working")
-    fetch('http://localhost:3000/api/blogs')
-    .then((dataFromFetch) => {
-      return dataFromFetch.json();
-    })
-    .then((parsedData) => {
-      console.log(parsedData)
-      setBlogs(parsedData)
-    })
-// the above pattern is promise...then pattern
-    {/*
-    The below pattern is await async pattern for the same use
-      const fetchData = async() => {
-      let dataFromFetch = await (await fetch('http://localhost:3000/api/blogs')).json()
-      //let parsedData = await dataFromFetch.json()
-      console.log(dataFromFetch)
-    }
-    fetchData();
-
-  */}
-
-  }, [])
+  const [blogs, setBlogs] = useState(props.blogs)
   
   return (
     <div className={styles.container}>
