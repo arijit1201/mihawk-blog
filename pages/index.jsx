@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Script from 'next/script'
 import styles from '../styles/Home.module.css'
 
@@ -37,7 +37,8 @@ export default function Home() {
           The CodeWalker Blog
         </h1>
           <div className={styles.imgWrap}>
-            <Image className={styles.mainImg} src='/home.jpg' width={400} height={250}/>
+            {/* <Image className={styles.mainImg} src='/home.jpg' width={400} height={250}/> */}
+            <img className={styles.mainImg} src='/home.jpg' alt='Mihawk Blog'></img>
           </div>
 
         <p className={styles.description}>This is the Codewalker Blog</p>

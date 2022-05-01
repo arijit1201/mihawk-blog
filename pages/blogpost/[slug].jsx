@@ -1,24 +1,57 @@
 import React, {useState, useEffect} from 'react';
 import { useRouter } from 'next/router'
 import styles from '../../styles/BlogPost.module.css'
-
+import { readFile, readdir } from 'fs/promises';
+import { join } from 'path';
 //find the file corresponding to the given slug
 //populate the content
 
-export async function getServerSideProps(context) {
+//static site generation pattern
+export async function getStaticPaths() {
+  let blogPaths = []
+  const blogRepo = "blogdata"
+  let data = await readdir(blogRepo);
+  for(const element of data) {
+    let theFile = await readFile(join(blogRepo,element), 'utf-8');
+    blogPaths.push({params : {slug: JSON.parse(theFile).slug}})
 
-  console.log(context.params.slug)
-  let dataFromFetch = await fetch(`http://localhost:3000/api/getblog?slug=${context.params.slug}`)
-  let parsedData = {title: "Error : 404", content: "Looks like this blog has not been written yet!", slug: "Not-found-error"}
-  if(dataFromFetch.status === 200)
-    parsedData = await dataFromFetch.json()
+  } 
+  return {
+    // paths: [
+    //   { params: {slug: 'how-to-learn-cpp'} },
+    //   { params: {slug: 'how-to-learn-java'} },
+    //   { params: {slug: 'how-to-learn-nextjs'} },
+    //   { params: {slug: 'how-to-learn-python'} }
+    // ],
+    paths: blogPaths,
+    fallback: true // false or 'blocking'
+  };
+}
+
+export async function getStaticProps(context) {
+
+  let blogData = await readFile(`blogdata/${context.params.slug}.json`, 'utf8');
+  let parsedData = await JSON.parse(blogData);
 return {
   props: { blog: parsedData }, // will be passed to the page component as props
 }
 }
 
+//server side rendering pattern
+// export async function getServerSideProps(context) {
 
-const slug = (props) => {
+//   console.log(context.params.slug)
+//   let dataFromFetch = await fetch(`http://localhost:3000/api/getblog?slug=${context.params.slug}`)
+//   let parsedData = {title: "Error : 404", content: "Looks like this blog has not been written yet!", slug: "Not-found-error"}
+//   if(dataFromFetch.status === 200)
+//     parsedData = await dataFromFetch.json()
+// return {
+//   props: { blog: parsedData }, // will be passed to the page component as props
+// }
+// }
+
+
+const Slug = (props) => {
   // const router = useRouter();
   // //console.log(router)
   //console.log(props.blog)
@@ -56,4 +89,4 @@ const slug = (props) => {
   );
 };
 
-export default slug;
+export default Slug;
