@@ -52,6 +52,10 @@ return {
 
 
 const Slug = (props) => {
+  const createMarkup = (content) => {
+    return {__html: content};
+  }
+  
   // const router = useRouter();
   // //console.log(router)
   //console.log(props.blog)
@@ -81,9 +85,7 @@ const Slug = (props) => {
       <main className={styles.main}>
         <h1>{blog.title}</h1>
         <hr />
-        <div>
-          {blog.content}
-        </div>
+        <div dangerouslySetInnerHTML={createMarkup(blog.content)} />
       </main>  
     </div>
   );
