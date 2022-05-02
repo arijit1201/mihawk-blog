@@ -4,10 +4,12 @@ export default async function handler(req, res) {
     const contactRepo = "contactdata"
     if (req.method === 'POST') {
       // Process a POST request
-      let { name, email} = req.body;
+      let { name, email, comment} = req.body;
+      let timestamp = new Date().toUTCString();
+      let data = {name, email, comment, timestamp}
       try {
         let contactDataArray = await fs.promises.readdir(contactRepo);
-        await fs.writeFileSync(path.join(contactRepo, name+'-'+email+'-'+Date.now()+'-'+(contactDataArray.length+1))+'.json', JSON.stringify(req.body));
+        await fs.writeFileSync(path.join(contactRepo, name+'-'+email+'-'+Date.now()+'-'+(contactDataArray.length+1))+'.json', JSON.stringify(data));
         // file written successfully
       } catch (err) {
         console.error(err);

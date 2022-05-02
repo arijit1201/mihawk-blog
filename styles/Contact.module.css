@@ -1,0 +1,24 @@
+.container{
+    margin: auto;
+    max-width: 45vw;
+    
+}
+
+.mb3{
+    margin-bottom: 1.25rem;
+}
+
+.formlabel{
+    margin: 0 0.5rem;
+}
+
+.basicForm{
+    
+    padding: 1rem;
+    
+}
+
+.submitButton{
+    margin: 0 0.5rem;
+  
+}
