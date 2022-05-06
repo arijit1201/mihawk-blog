@@ -38,6 +38,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:12.1.5"],\
             ["react", "npm:18.0.0"],\
             ["react-dom", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:18.0.0"],\
+            ["react-infinite-scroll-component", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:6.1.0"],\
             ["styled-jsx", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:5.0.2"]\
           ],\
           "linkType": "SOFT"\
@@ -1903,6 +1904,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["next", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:12.1.5"],\
             ["react", "npm:18.0.0"],\
             ["react-dom", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:18.0.0"],\
+            ["react-infinite-scroll-component", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:6.1.0"],\
             ["styled-jsx", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:5.0.2"]\
           ],\
           "linkType": "SOFT"\
@@ -2321,6 +2323,29 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["react-infinite-scroll-component", [\
+        ["npm:6.1.0", {\
+          "packageLocation": "./.yarn/cache/react-infinite-scroll-component-npm-6.1.0-fc628f1f18-3708398934.zip/node_modules/react-infinite-scroll-component/",\
+          "packageDependencies": [\
+            ["react-infinite-scroll-component", "npm:6.1.0"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:6.1.0", {\
+          "packageLocation": "./.yarn/__virtual__/react-infinite-scroll-component-virtual-d398ed7d45/0/cache/react-infinite-scroll-component-npm-6.1.0-fc628f1f18-3708398934.zip/node_modules/react-infinite-scroll-component/",\
+          "packageDependencies": [\
+            ["react-infinite-scroll-component", "virtual:23ba04f68cf67c185833cb577dcf5417a908db7d3ae10687730a6cc7d5e0578af79c0edee7b6795bd477a4e452cc24fcbcbcef6baeb60234131965a0a7913598#npm:6.1.0"],\
+            ["@types/react", null],\
+            ["react", "npm:18.0.0"],\
+            ["throttle-debounce", "npm:2.3.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["react-is", [\
         ["npm:16.13.1", {\
           "packageLocation": "./.yarn/cache/react-is-npm-16.13.1-a9b9382b4f-f7a19ac349.zip/node_modules/react-is/",\
@@ -2644,6 +2669,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/text-table-npm-0.2.0-d92a778b59-b6937a38c8.zip/node_modules/text-table/",\
           "packageDependencies": [\
             ["text-table", "npm:0.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["throttle-debounce", [\
+        ["npm:2.3.0", {\
+          "packageLocation": "./.yarn/cache/throttle-debounce-npm-2.3.0-0e354dff02-6d90aa2ddb.zip/node_modules/throttle-debounce/",\
+          "packageDependencies": [\
+            ["throttle-debounce", "npm:2.3.0"]\
           ],\
           "linkType": "HARD"\
         }]\

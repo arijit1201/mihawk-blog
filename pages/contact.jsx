@@ -34,22 +34,28 @@ const Contact = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = {name, email, comment};
-    try{
-      postData("http://localhost:3000/api/postcontact", data)
+    const data = { name, email, comment };
+    if (!(name.trim()) || !(email.trim()) || !(comment.trim())) {
+      setlabel("Please complete all the fields.")
+      setTimeout(() => {
+        setlabel('')
+      }, 3000);
     }
-    catch(err)
-    {
-      console.log(err)
+    else {
+      try {
+        postData("http://localhost:3000/api/postcontact", data)
+      }
+      catch (err) {
+        console.log(err)
+      }
+      setlabel("Thanks for your comment")
+      setTimeout(() => {
+        setlabel('')
+        setname('')
+        setemail('')
+        setcomment('')
+      }, 3000);
     }
-    setlabel("Thanks for your comment")
-    setTimeout(() => {
-      setlabel('')
-      setname('')
-      setemail('')
-      setcomment('')
-    }, 3000);
-
   }
 
   const handleChange = (event) => {
@@ -73,24 +79,24 @@ const Contact = () => {
       <h1>Contact Us</h1>
       <form className={styles.basicForm} onSubmit={handleSubmit}>
         <div className={styles.mb3}>
-          <label htmlFor="name" className={styles.formlabel}>Enter your Name</label>
-          <input type="text" value={name} onChange={handleChange} className="form-control" id="name" name='name' aria-describedby="emailHelp" />
+          {/* <label htmlFor="name" className={styles.formlabel}>Enter your Name</label> */}
+          <input placeholder='Enter your name here' type="text" value={name} onChange={handleChange} className={styles.input} id="name" name='name' aria-describedby="emailHelp" required/>
         </div>
 
         <div className={styles.mb3}>
-          <label htmlFor="email" className={styles.formlabel}>Enter your email address</label>
-          <input type="email" value={email} onChange={handleChange} className="form-control" id="email" name='email' aria-describedby="emailHelp" />
+          {/* <label htmlFor="email" className={styles.formlabel}>Enter your email address</label> */}
+          <input type="email" placeholder='Enter your email address here' value={email} onChange={handleChange} className={styles.input} id="email" name='email' aria-describedby="emailHelp" required/>
         </div>
         <div className={styles.mb3}>
-          <label htmlFor="comment" className={styles.formlabel}>What is in your mind?</label>
-          <textarea className="form-control" name='comment' value={comment} onChange={handleChange} placeholder="Leave a comment here" id="comment" />
+          {/* <label htmlFor="comment" className={styles.formlabel}>What is in your mind?</label> */}
+          <textarea className={styles.input} name='comment' value={comment} onChange={handleChange} placeholder="What is in your mind?" id="comment" required/>
         </div>
-        <div  className={styles.mb3}>
+        <div className={styles.mb3}>
           <label className={styles.formlabel}>{label}</label>
         </div>
 
 
-        <button type="submit" className={styles.submitButton}>Submit</button>
+        <button type="submit" className={styles.btn}>Submit</button>
       </form>
     </div>
   )
