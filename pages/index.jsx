@@ -30,17 +30,17 @@ export default function Home() {
           <div className={styles.blogItem}>
             <h3>How to learn Javascript in 2022?</h3>
             <p>Javascript is the premier language used for web development.</p>
-            <button class={styles.btn}>Read More</button>
+            <button className={styles.btn}>Read More</button>
           </div>
           <div className={styles.blogItem}>
             <h3>How to learn Javascript in 2022?</h3>
             <p>Javascript is the premier language used for web development.</p>
-            <button class={styles.btn}>Read More</button>
+            <button className={styles.btn}>Read More</button>
           </div>
           <div className={styles.blogItem}>
             <h3>How to learn Javascript in 2022?</h3>
             <p>Javascript is the premier language used for web development.</p>
-            <button class={styles.btn}>Read More</button>
+            <button className={styles.btn}>Read More</button>
           </div>
         </div>
       </main>
