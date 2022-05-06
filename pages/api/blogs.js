@@ -6,7 +6,7 @@ export default async function handler(req, res) {
   const blogRepo = "blogdata"
   let data = await fs.promises.readdir(blogRepo);
   data = data.slice(0, parseInt(req.query.count))
-  //console.log(data)
+  
   let allBlogs = []
   //using for...of pattern of javascript to use await inside
   // for(const element of data) {
@@ -18,35 +18,7 @@ export default async function handler(req, res) {
   }
     return res.status(200).json(allBlogs)
  
-  // fs.readdirSync(folderPath).map(fileName => {
-  //   return path.join(folderPath, fileName)
-  // })
-  // .filter(isFile)
-
-  // await fs.readdir(blogRepo, 'utf8' , (err, data) => {
-  //   if (err) {
-  //     console.error(err)
-  //     return res.status(500).json({error: "Internal Server Error"})
-      
-  //   }
-  //   let blogArray = []
-  //   data.forEach(element => {
-  //     console.log(element);
-      
-  //     fs.readFile(path.join(blogRepo,element), 'utf-8', (err, content) => {
-  //       if(err)
-  //       {
-  //         console.log(err);
-  //         return res.status(500).json({error: "Internal Server Error"})
-  //       }
-  //       console.log(content)
-  //       await blogArray = blogArray.push(content)
-  //       console.log(blogArray)
-  //     })
-  //   });
-  //   return res.status(200).json(blogArray)
-    
-  // })
+  
   
 }
 

@@ -1,11 +1,22 @@
-.mainnav ul{
-    display: flex;
-    justify-content: center;
-      margin-top: 50px;
+.mainnav {
+  margin: 2rem auto;
+}
+.mainnav ul {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+.mainnav ul li {
+  margin: 0 24px;
+  list-style: none;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .mainnav ul li {
+    margin: 0 10px;
+    list-style: none;
+    font-weight: bold;
   }
-   
-  .mainnav ul li{
-    margin: 0 24px;
-      list-style: none;
-      font-weight: bold;
-  }  
+}

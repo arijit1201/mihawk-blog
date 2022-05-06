@@ -5,11 +5,10 @@ import styles from '../styles/Contact.module.css'
 const Contact = () => {
 
   async function postData(url = '', data = {}) {
-    // Default options are marked with *
-    //const data = { username: 'example' };
+    ;
 
     fetch(url, {
-      method: 'POST', // or 'PUT'
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -17,7 +16,7 @@ const Contact = () => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('Success:', data);
+        
       })
       .catch((error) => {
         console.error('Error:', error);
@@ -46,7 +45,7 @@ const Contact = () => {
         postData("http://localhost:3000/api/postcontact", data)
       }
       catch (err) {
-        console.log(err)
+        console.error(err)
       }
       setlabel("Thanks for your comment")
       setTimeout(() => {
@@ -80,16 +79,16 @@ const Contact = () => {
       <form className={styles.basicForm} onSubmit={handleSubmit}>
         <div className={styles.mb3}>
           {/* <label htmlFor="name" className={styles.formlabel}>Enter your Name</label> */}
-          <input placeholder='Enter your name here' type="text" value={name} onChange={handleChange} className={styles.input} id="name" name='name' aria-describedby="emailHelp" required/>
+          <input placeholder='Enter your name here' type="text" value={name} onChange={handleChange} className={styles.input} id="name" name='name' aria-describedby="emailHelp" required />
         </div>
 
         <div className={styles.mb3}>
           {/* <label htmlFor="email" className={styles.formlabel}>Enter your email address</label> */}
-          <input type="email" placeholder='Enter your email address here' value={email} onChange={handleChange} className={styles.input} id="email" name='email' aria-describedby="emailHelp" required/>
+          <input type="email" placeholder='Enter your email address here' value={email} onChange={handleChange} className={styles.input} id="email" name='email' aria-describedby="emailHelp" required />
         </div>
         <div className={styles.mb3}>
           {/* <label htmlFor="comment" className={styles.formlabel}>What is in your mind?</label> */}
-          <textarea className={styles.input} name='comment' value={comment} onChange={handleChange} placeholder="What is in your mind?" id="comment" required/>
+          <textarea className={styles.input} name='comment' value={comment} onChange={handleChange} placeholder="What is in your mind?" id="comment" required />
         </div>
         <div className={styles.mb3}>
           <label className={styles.formlabel}>{label}</label>
